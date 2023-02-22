@@ -1,0 +1,18 @@
+@import 'vendors/reset.scss';
+* {
+    box-sizing: border-box;
+  }
+  
+  img {
+    max-width: 100%;
+  }
+  .element
+  {
+    background-color: lightgray;
+  }
+  $types: alkaliMetal lanthanide nobleGas transitionMetal postTransitionMetal alkalineEarthMetal actinide metalloid otherNonMetal;
+  @each $type in $types {
+    .element--#{$type}{
+      background-color: hsl(random(360),random(100),random(100), 0.5);
+    }
+  }
