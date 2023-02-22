@@ -1,0 +1,5 @@
+@mixin landscape {
+    @media screen and (max-width: 87.5em) {
+      @content;
+    }
+} 

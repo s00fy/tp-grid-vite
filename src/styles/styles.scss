@@ -1,18 +1,38 @@
 @import 'vendors/reset.scss';
+@import 'vendors/bigscreen.scss';
+
 * {
     box-sizing: border-box;
   }
-  
   img {
     max-width: 100%;
   }
   .element
   {
+    font-family: Arial, Helvetica, sans-serif;
     background-color: lightgray;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-size:0.75rem;
+    align-items: center;
+  }
+  .element__symbol{
+    font-size: 2.4rem;
+  }
+  .table
+  {
+    display: grid;
+    grid-template-columns: repeat(13, minmax(10rem , 1fr));
+    grid-auto-rows: repeat(8, 10rem);
+    grid-gap:1rem;
   }
   $types: alkaliMetal lanthanide nobleGas transitionMetal postTransitionMetal alkalineEarthMetal actinide metalloid otherNonMetal;
   @each $type in $types {
     .element--#{$type}{
-      background-color: hsl(random(360),random(100),random(100), 0.5);
+      $steps : 360/length($types);
+      $hue : $steps * index($types, $type);
+      background-color: hsl( $hue, 50, 60);
     }
   }
+
